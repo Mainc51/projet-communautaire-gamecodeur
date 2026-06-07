@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://20g2e6yweg1b" path="res://Scenes/Models/Office_chair/chaise_de_bureau.glb" id="3_fr46g"]
 [ext_resource type="PackedScene" uid="uid://ddaguqfumsepe" path="res://Scenes/Models/Amstrad.tscn" id="4_6mpvv"]
 [ext_resource type="PackedScene" uid="uid://brdokctytmj6e" path="res://Scenes/player.tscn" id="5_gkney"]
+[ext_resource type="Script" uid="uid://llklq2b2mmc2" path="res://Scenes/Models/amstrad.gd" id="5_nfrpb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkney"]
 size = Vector3(5.4438477, 3.7834473, 1.8772278)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfrpb"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gkney"]
 
@@ -32,6 +35,13 @@ transform = Transform3D(-7.236421e-07, 0, 16.555, 0, 16.555, 0, -16.555, 0, -7.2
 
 [node name="Amstrad_on" parent="." unique_id=1998589918 instance=ExtResource("4_6mpvv")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.509321, 14.145581, 0.26302528)
+script = ExtResource("5_nfrpb")
+
+[node name="Area3D" type="Area3D" parent="Amstrad_on" unique_id=1920526759]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Amstrad_on/Area3D" unique_id=1841432872]
+transform = Transform3D(14.49, 0, 0, 0, 14.49, 0, 0, 0, 14.49, 0, 0, 0)
+shape = SubResource("BoxShape3D_nfrpb")
 
 [node name="Player" parent="." unique_id=1247559875 instance=ExtResource("5_gkney")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.199)
@@ -47,3 +57,6 @@ mesh = SubResource("PlaneMesh_gkney")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sol/MeshInstance3D/StaticBody3D" unique_id=469252551]
 transform = Transform3D(2.05, 0, 0, 0, 2.05, 0, 0, 0, 2.05, 0, 0, 0)
 shape = SubResource("HeightMapShape3D_gkney")
+
+[connection signal="body_entered" from="Amstrad_on/Area3D" to="Amstrad_on" method="_on_area_3d_body_entered"]
+[connection signal="body_shape_exited" from="Amstrad_on/Area3D" to="Amstrad_on" method="_on_area_3d_body_shape_exited"]
