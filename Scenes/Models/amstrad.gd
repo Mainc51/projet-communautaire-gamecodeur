@@ -1,6 +1,5 @@
 extends Node3D
 
-var gameLaunched = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -15,8 +14,7 @@ func lancer_jeu():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if gameLaunched == false and player_in_zone and Input.is_action_just_pressed("Interact"):
-		gameLaunched = true
+	if player_in_zone and Input.is_action_just_pressed("Interact"):
 		lancer_jeu()
 
 var player_in_zone = false
