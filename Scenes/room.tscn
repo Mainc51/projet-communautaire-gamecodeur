@@ -3,14 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://3xa54ryjsn7j" path="res://Scenes/Models/Amstrad/amstrad_cpc_6128.glb" id="1_lsht4"]
 [ext_resource type="PackedScene" uid="uid://jftjtkbgpdov" path="res://Scenes/Models/Desk/desk.blend" id="2_fr46g"]
 [ext_resource type="PackedScene" uid="uid://20g2e6yweg1b" path="res://Scenes/Models/Office_chair/chaise_de_bureau.glb" id="3_fr46g"]
+[ext_resource type="PackedScene" uid="uid://ddaguqfumsepe" path="res://Scenes/Models/Amstrad.tscn" id="4_6mpvv"]
 
 [node name="Node3D" type="Node3D" unique_id=1174762127]
 
-[node name="Sketchfab_Scene" parent="." unique_id=164480538 instance=ExtResource("1_lsht4")]
-transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 0.048593283, 13.991595, 0.6990155)
+[node name="Amstrad_off" parent="." unique_id=164480538 instance=ExtResource("1_lsht4")]
+transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 5.355694, 13.991595, 0.6990155)
 
 [node name="desk" parent="." unique_id=1367548357 instance=ExtResource("2_fr46g")]
 transform = Transform3D(6.005, 0, 0, 0, 6.005, 0, 0, 0, 6.005, -0.40956497, 0, -2.8285596)
 
 [node name="Sketchfab_Scene2" parent="." unique_id=467733745 instance=ExtResource("3_fr46g")]
 transform = Transform3D(-7.236421e-07, 0, 16.555, 0, 16.555, 0, -16.555, 0, -7.236421e-07, 0, 0, 1.7578087)
+
+[node name="Amstrad_on" parent="." unique_id=1998589918 instance=ExtResource("4_6mpvv")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.509321, 14.145581, 0.26302528)

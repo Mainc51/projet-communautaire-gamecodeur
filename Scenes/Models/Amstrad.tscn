@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ddaguqfumsepe"]
+
+[ext_resource type="PackedScene" uid="uid://3xa54ryjsn7j" path="res://Scenes/Models/Amstrad/amstrad_cpc_6128.glb" id="1_te7dc"]
+[ext_resource type="Texture2D" uid="uid://b8pj14helnb0m" path="res://Scenes/Models/Amstrad/vignette-gamejam-2-mini.png" id="2_wnpn0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uro3s"]
+albedo_texture = ExtResource("2_wnpn0")
+uv1_scale = Vector3(-1, 1, 1)
+
+[node name="Sketchfab_Scene" unique_id=1998589918 instance=ExtResource("1_te7dc")]
+
+[node name="cpc_2_Extrusio_Extrusion_1_MoTexte_1_2_Mat_11_0" parent="Sketchfab_model/f7eb78b3099543d2a500645186fd9bec_fbx/RootNode/CPC_6128/CRT/ECRAN/cpc_2_Extrusio_Extrusion_1_MoTexte_1_2" parent_id_path=PackedInt32Array(1800597034) index="0" unique_id=957532938]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 0, 16.086014, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_uro3s")
