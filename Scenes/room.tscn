@@ -4,8 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://jftjtkbgpdov" path="res://Scenes/Models/Desk/desk.blend" id="2_fr46g"]
 [ext_resource type="PackedScene" uid="uid://20g2e6yweg1b" path="res://Scenes/Models/Office_chair/chaise_de_bureau.glb" id="3_fr46g"]
 [ext_resource type="PackedScene" uid="uid://ddaguqfumsepe" path="res://Scenes/Models/Amstrad.tscn" id="4_6mpvv"]
+[ext_resource type="PackedScene" uid="uid://brdokctytmj6e" path="res://Scenes/player.tscn" id="5_gkney"]
 
-[node name="Node3D" type="Node3D" unique_id=1174762127]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gkney"]
+size = Vector3(5.4438477, 3.7834473, 1.8772278)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gkney"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_gkney"]
+
+[node name="Room" type="Node3D" unique_id=1174762127]
 
 [node name="Amstrad_off" parent="." unique_id=164480538 instance=ExtResource("1_lsht4")]
 transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 5.355694, 13.991595, 0.6990155)
@@ -13,8 +21,29 @@ transform = Transform3D(1.255, 0, 0, 0, 1.255, 0, 0, 0, 1.255, 5.355694, 13.9915
 [node name="desk" parent="." unique_id=1367548357 instance=ExtResource("2_fr46g")]
 transform = Transform3D(6.005, 0, 0, 0, 6.005, 0, 0, 0, 6.005, -0.40956497, 0, -2.8285596)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="desk" unique_id=1100606032]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="desk/StaticBody3D" unique_id=1610156064]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, -0.30200204, 1.3917236, 0.05732727)
+shape = SubResource("BoxShape3D_gkney")
+
 [node name="Sketchfab_Scene2" parent="." unique_id=467733745 instance=ExtResource("3_fr46g")]
 transform = Transform3D(-7.236421e-07, 0, 16.555, 0, 16.555, 0, -16.555, 0, -7.236421e-07, 0, 0, 1.7578087)
 
 [node name="Amstrad_on" parent="." unique_id=1998589918 instance=ExtResource("4_6mpvv")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -6.509321, 14.145581, 0.26302528)
+
+[node name="Player" parent="." unique_id=1247559875 instance=ExtResource("5_gkney")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.199)
+
+[node name="Sol" type="Node" parent="." unique_id=1067916079]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sol" unique_id=684455228]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("PlaneMesh_gkney")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sol/MeshInstance3D" unique_id=1505513614]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol/MeshInstance3D/StaticBody3D" unique_id=469252551]
+transform = Transform3D(2.05, 0, 0, 0, 2.05, 0, 0, 0, 2.05, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_gkney")
